@@ -18,6 +18,16 @@ class TodolistsController < ApplicationController
   	  @book = Book.find(params[:id])
   end
 
+  def edit
+  	  @book = Book.find(params[:id])
+  end
+
+  def update
+  	  book = Book.find(params[:id])
+  	  book.update(book_params)
+  	  redirect_to todolist_path(book.id)
+  end
+
 
 
 
