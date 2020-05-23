@@ -6,7 +6,8 @@ class TodolistsController < ApplicationController
   def create
   	  book = Book.new(book_params)
       book.save
-      redirect_to '/top'
+      redirect_to todolist_path(book.id) #詳細画面へリダイレクト
+
   end
 
   def index
@@ -28,7 +29,11 @@ class TodolistsController < ApplicationController
   	  redirect_to todolist_path(book.id)
   end
 
-
+  def destroy
+      book = Book.find(params[:id])
+      book.destroy
+      redirect_to todolists_path
+  end
 
 
 
@@ -37,7 +42,8 @@ class TodolistsController < ApplicationController
   private
 
   def book_params
-  	  params.require(:book).permit(:title, :body)
+  	  params.require(:book).permit(:title, :body,:image)
+
   end
 
 end
