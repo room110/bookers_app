@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'top' => 'homes#top'
 
-  post 'todolists' => 'todolists#create'
 
-  get 'todolists' => 'todolists#index'
+  post 'books' => 'todolists#create'
 
-  get 'todolists/:id' => 'todolists#show',as:'todolist'
+  get 'books' => 'todolists#index'
 
-  get 'todolists/:id/edit' => 'todolists#edit', as: 'edit_todolist'
+  get 'books/:id/edit' => 'todolists#edit', as:'edit_book'
 
-  patch 'todolists/:id' => 'todolists#update', as: 'update_todolist'
+  get 'books/:id' => 'todolists#show', as:'book'
 
-  delete 'todolists/:id' => 'todolists#destroy', as: 'destroy_todolist'
+  patch 'books/:id' => 'todolists#update'#, as:'book'
+
+  delete 'books/:id' => 'todolists#destroy'#, as: 'book'
 end
 
 

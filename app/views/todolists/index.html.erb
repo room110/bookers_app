@@ -11,9 +11,9 @@
         <tr>
   	       <th align="left"><%= book.title %><th>
            <th align="left"><%= book.body %><th>
-           <th><%= link_to "Show", todolist_path(book.id) %><th>
-           <th><%= link_to "Edit", edit_todolist_path(book.id) %></th>
-           <th><%= link_to "Destroy", destroy_todolist_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+           <th><%= link_to "Show", book_path(book.id) %><th>
+           <th><%= link_to "Edit", edit_book_path(book.id) %></th>
+           <th><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
        </tr>
      <% end %>
 </table>
@@ -22,7 +22,7 @@
 
 <h3>New book</h3>
 <!-- form for 部分-->
-<%= form_for(@book, url: '/todolists') do |f| %>
+<%= form_for(@book) do |f| %>
 
 <% if @book.errors.any? %>
 <table>

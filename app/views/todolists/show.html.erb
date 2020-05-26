@@ -6,5 +6,5 @@
 <p><%= @book.body %></p>
 <h2></h2>
 <%= attachment_image_tag @book, :image, :fill, 300, 300, format: 'jpeg' %>
-<%= link_to "Edit", edit_todolist_path(@book.id) %>
-<a href="/todolists/">Back</a>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Back", books_path %>
